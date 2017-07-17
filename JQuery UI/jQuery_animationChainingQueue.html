@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery Special Easing</title>
+    <style>
+        img {
+            position: absolute;
+            width: 170px;
+            height: 150px;
+            top: 100px;
+        }
+    </style>
+    <script src="Scripts/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+
+            //fx is the default Queue
+            $('#img1')
+                .show(5000)
+                .animate({ left: '300px' }, 5000)
+                .animate({ top: '200px' }, 5000)
+                .animate({ left: '0px' }, 5000)
+                .hide(5000);
+
+            $('#mybtn').click(function () {
+                $('#img1').fadeOut({
+                    duration: 3000,
+                    queue: 'myQueue'
+                });
+                
+                $('#img1').dequeue('myQueue');// to start custom queue while cont. the animation it interrupts
+
+            });
+
+
+            $('#mybtnin').click(function () {
+                $('#img1').fadeIn({
+                    duration: 3000,
+                    queue: 'myQueueIN'
+                });
+
+                $('#img1').dequeue('myQueueIN');// to start custom queue while cont. the animation it interrupts
+
+            });
+            
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <button id="mybtn" value="fade">fadeOut</button>
+    <button id="mybtnin" value="fade">fadeIN</button>
+    <img id="img1" src="images/1.jpg" />
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery Special Easing</title>
+    <style>
+        img {
+            position: absolute;
+            width: 170px;
+            height: 150px;
+        }
+
+        #img2 {
+            top: 200px;
+        }
+    </style>
+    <script src="Scripts/jquery-1.10.1.min.js"></script>
+    <script src="Scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+
+            //$('#img1').animate({ top: '300px', left: '300px' }, 'slow', 'linear');
+
+            $('#img1').animate({
+                left: '500px'
+            },
+                {
+                    duration: 2000,
+                    //specialEasing: { left: 'linear', top: 'swing' },
+                    step: function (l, t) {//l:reflects the value of left, while t: varies between 1 & 0 to define total exec
+                        $('p').text(l);
+                        if (t.pos > 0.9)// w reached half animation location
+                            $(this).stop();
+
+                    }/*,
+                    progress: function (a,p,r) {//a: animation, p:progress [0-1], r: remaining time
+                        $('p').text(p);//r
+                    }*/
+                });
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <p></p>
+    <img id="img1" src="images/1.jpg" />
+</body>
+</html>

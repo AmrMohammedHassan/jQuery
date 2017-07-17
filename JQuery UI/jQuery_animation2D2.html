@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery Rotate and Scale 2D Transformation</title>
+    <style>
+        img {
+            position: absolute;
+            width: 170px;
+            height: 150px;
+            top: 100px;
+            left: 300px;
+        }
+    </style>
+    <script src="Scripts/jquery-1.10.1.min.js"></script>
+    <script src="Scripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" language="javascript">
+        var r, s = 0;
+        $(document).ready(function () {
+
+            $({ s: 0, r: 0 }).animate({
+                s: 2,//s:scaling
+                r: 360//r:rotating
+            },
+                {
+                    duration: 3000,
+                    step: function (now, fx) {
+
+                        if (fx.prop == 's')
+                            s = now;
+                        else if (fx.prop == 'r')
+                            r = now;
+
+                        $('#img1').css('transform', 'scale(' + s + ',' + s + ')rotate(' + r + 'deg)');//non numeric
+
+
+                    }
+                });
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+
+    <img id="img1" src="images/1.jpg" />
+</body>
+</html>

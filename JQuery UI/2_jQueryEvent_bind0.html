@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    <title></title>
+
+    <script src="Scripts/jquery-1.10.1.min.js"></script>
+    <script>
+
+        //document.getElementById('btn').onclick = function () {
+        //    alert("click event has been handled");
+        //}
+
+        //document.getElementById('btn').onclick = function () {
+        //    alert("click event has been handled");
+        //}
+        //document.getElementById('btn').addEventListener('click', function () {
+        //    alert("click event has been handled")
+        //}, false);
+
+        alert("click event has been handled");
+        $(function () {
+            $('#btn').click(function () {
+                alert("click event has been handled");
+            })
+        });
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">OK</button>
+</body>
+</html>

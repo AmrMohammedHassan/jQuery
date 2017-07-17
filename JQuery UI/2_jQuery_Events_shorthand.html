@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .c1 {
+            width: 300px;
+            height: 300px;
+            border: 2px red solid;
+        }
+
+        .c2 {
+            position: relative;
+            float: left;
+        }
+    </style>
+    <script src="Scripts/jquery-1.10.1.min.js"></script>
+    <script>
+
+        $(function () {
+           
+            $('ul li').hover(function () {
+                $(this).css({ 'background': 'gray', 'cursor': 'pointer' });
+            }, function () {
+                $(this).css('background', 'white');
+            })
+        });
+    </script>
+</head>
+<body>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ul>
+</body>
+</html>

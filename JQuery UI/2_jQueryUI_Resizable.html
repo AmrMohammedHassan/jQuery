@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/jquery-ui-1.8.18.custom.css"/>
+		<style>
+		#box
+		{
+			width:200px;
+			height:200px;
+			background-color:pink;
+			float:left;
+		}
+		#box2
+		{
+			width:400px;
+			height:400px;
+			background-color:gray;
+			position:relative;
+			left:300px;
+		}
+		
+		</style>
+        <script src="Scripts/jquery-1.10.1.min.js"></script>
+        <script src="Scripts/jquery-ui-1.10.4.min.js"></script>
+		<script>
+			$(function(){
+				//$("#box").resizable();
+			    $("#box").resizable({ alsoResize: '#box2' });
+				
+			});
+		
+		
+		</script>
+	</head>
+	
+	<body>
+	
+		<div id="box" ></div>
+		<div id="box2" ></div>
+		
+	</body>
+</html>

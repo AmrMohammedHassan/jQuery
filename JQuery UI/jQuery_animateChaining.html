@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery Special Easing</title>
+    <style>
+        img {
+            position: absolute;
+            width: 170px;
+            height: 150px;
+            top: 200px;
+        }
+    </style>
+    <script src="Scripts/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+
+            
+            $('#img1')
+                .hide(5000)
+                .show(5000)
+                .animate({ left: '500px' }, 5000)//absolute
+                .queue(function () {// to intriduce function in the middle of animation chain
+                    $('p').text('adding text within animation');
+                    $(this).dequeue()
+                })
+                // to complete the animation you should use dequeue()
+                .delay(2000)
+                .animate({left: '-=300px'},5000);//relative
+
+           // $('#mybtn').click(function () { $('img').stop() });
+            // stop: stops the current animation and moves to the next in queue
+            // we need to clear the queue by setting 1st parameter to true
+            // second param set to ture if we want to jump to the end of the animation
+
+            //$('#mybtn').click(function () { $('img').stop(true) });
+           $('#mybtn').click(function () { $('img').stop(false,true) });
+            //we can also use finish() without passing any param, it stops at the end of the last animation in the queue
+           // $('#mybtn').click(function () { $('img').finish() });
+            
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <p></p>
+    <button id="mybtn" value="Stop">clear</button>
+    <img id="img1" src="images/1.jpg" />
+</body>
+</html>

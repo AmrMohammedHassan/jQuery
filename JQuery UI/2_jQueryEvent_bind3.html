@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="Scripts/jquery-1.10.1.min.js"></script>
+    <script>
+
+        $(function () {
+            var msg = "welcome to iti";
+            //var obj = {name:'Ahmed',age:20,message:msg}
+
+            $('#btn').bind('click', { name: 'Ahmed', age: 20, message: msg }, function (e) {
+
+                alert(e.data.message);
+            });
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">OK</button>
+
+
+</body>
+</html>
